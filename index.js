@@ -206,6 +206,11 @@ SteamAuth.Sync = function(complete)
 			},
 			function(err, response, body)
 			{
+		
+			        if (err) {
+				    return complete({ message: err.message });
+			        }
+		
 				if (response.statusCode != 200)
 				{
 					return complete({message:"Non 200 response from Steam"});
